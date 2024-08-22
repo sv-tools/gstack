@@ -3,6 +3,7 @@ package gstack
 import (
 	"bytes"
 	"fmt"
+	"iter"
 )
 
 type node[T any] struct {
@@ -82,4 +83,15 @@ func (s *GStack[T]) String() string {
 func (s *GStack[T]) Clear() {
 	s.top = nil
 	s.len = 0
+}
+
+// Iter returns a consuming iterator for the stack
+func (s *GStack[T]) Iter() iter.Seq[T] {
+	return func(yield func(T) bool) {
+		for s.top != nil {
+			if !yield(s.Pop()) {
+				break
+			}
+		}
+	}
 }

@@ -1,3 +1,3 @@
 module github.com/sv-tools/gstack
 
-go 1.20
+go 1.23

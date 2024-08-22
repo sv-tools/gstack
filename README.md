@@ -20,3 +20,23 @@ fmt.Println(s.Peek())
 // 5
 ```
 
+## Changelog
+### v0.1.0
+- minimal supported version of Go is 1.20
+- initial implementation
+
+### v1.0.0
+- minimal supported version of Go is 1.23
+- added `Iter` method to iterate over the stack and consume all items
+```go
+s := gstack.New(1, 2, 3, 4)
+for v := range s.Iter() {
+    fmt.Println(v)
+}
+fmt.Println("len:", s.Len())
+// Output: 4
+// 3
+// 2
+// 1
+// len: 0
+```

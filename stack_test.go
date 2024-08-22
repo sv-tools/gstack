@@ -51,6 +51,20 @@ func TestGStack_New(t *testing.T) {
 	}
 }
 
+func TestGStack_Iter(t *testing.T) {
+	s := gstack.New(1, 2, 3, 4)
+	i := 4
+	for v := range s.Iter() {
+		if v != i {
+			t.Fatalf("expected %d as item, but got %v", i, v)
+		}
+		i--
+	}
+	if s.Len() != 0 {
+		t.Fatalf("expected empty stack, but got %d items", s.Len())
+	}
+}
+
 func ExampleGStack() {
 	s := gstack.New(1, 2, 3, 4)
 	fmt.Println(s.Len())
@@ -66,4 +80,17 @@ func ExampleGStack() {
 	// 2
 	// 1
 	// 5
+}
+
+func ExampleGStack_Iter() {
+	s := gstack.New(1, 2, 3, 4)
+	for v := range s.Iter() {
+		fmt.Println(v)
+	}
+	fmt.Println("len:", s.Len())
+	// Output: 4
+	// 3
+	// 2
+	// 1
+	// len: 0
 }
