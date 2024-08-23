@@ -40,3 +40,6 @@ fmt.Println("len:", s.Len())
 // 1
 // len: 0
 ```
+
+### v1.1.0
+- added `IsEmpty` method to check if the stack is empty

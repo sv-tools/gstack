@@ -95,3 +95,8 @@ func (s *GStack[T]) Iter() iter.Seq[T] {
 		}
 	}
 }
+
+// IsEmpty returns true if the stack is empty
+func (s *GStack[T]) IsEmpty() bool {
+	return s.top == nil
+}
