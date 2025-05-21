@@ -1,7 +1,14 @@
 # gstack
-Simple Generic Stack implementation in Go using linked list
+
+Simple Generic Stack implementation in Go using linked list.
+
+The repository is archived because the feature is fully implemented.
 
 ## Usage
+
+```shell
+go get github.com/sv-tools/gstack
+```
 
 ```go
 s := gstack.New(1, 2, 3, 4)
